@@ -30,7 +30,7 @@ christopher = {
       }
     },
     morse: function(input) {
-      var inputArray, item, j, len, morse, outputString;
+      var i, inputArray, item, j, len, morse, outputString;
       morse = {
         "a": ".-",
         "b": "-...",
@@ -82,8 +82,8 @@ christopher = {
       };
       inputArray = input.split("");
       outputString = "";
-      for (j = 0, len = inputArray.length; j < len; j++) {
-        item = inputArray[j];
+      for (i = j = 0, len = inputArray.length; j < len; i = ++j) {
+        item = inputArray[i];
         outputString += (function() {
           if (morse[item]) {
             return morse[item];
@@ -91,7 +91,55 @@ christopher = {
             throw new Error("Character not translatable to Morse: " + item);
           }
         })();
-        if (item !== inputArray[inputArray.length - 1]) {
+        if (i !== inputArray.length - 1) {
+          outputString += " ";
+        }
+      }
+      return outputString;
+    },
+    nato: function(input) {
+      var i, inputArray, item, j, len, nato, outputString;
+      nato = {
+        "a": "Alpha",
+        "b": "Bravo",
+        "c": "Charlie",
+        "d": "Delta",
+        "e": "Echo",
+        "f": "Foxtrot",
+        "g": "Golf",
+        "h": "Hotel",
+        "i": "India",
+        "j": "Juliet",
+        "k": "Kilo",
+        "l": "Lima",
+        "m": "Mike",
+        "n": "November",
+        "o": "Oscar",
+        "p": "Papa",
+        "q": "Quebec",
+        "r": "Romeo",
+        "s": "Sierra",
+        "t": "Tango",
+        "u": "Uniform",
+        "v": "Victor",
+        "w": "Whiskey",
+        "x": "X-ray",
+        "y": "Yankee",
+        "z": "Zulu",
+        " ": "/"
+      };
+      inputArray = input.split("");
+      outputString = "";
+      for (i = j = 0, len = inputArray.length; j < len; i = ++j) {
+        item = inputArray[i];
+        outputString += (function() {
+          if (nato[item]) {
+            return nato[item];
+          } else {
+            throw new Error("Character not translatable to NATO language: " + item);
+          }
+        })();
+        if (i !== inputArray.length - 1) {
           outputString += " ";
         }
       }
@@ -176,6 +224,51 @@ christopher = {
             return morse[item];
           } else {
             throw new Error("Character/phrase not translatable from Morse: " + item);
+          }
+        })();
+      }
+      return inputString;
+    },
+    nato: function(input) {
+      var inputString, item, j, len, nato, outputArray;
+      nato = {
+        "Alpha": "a",
+        "Bravo": "b",
+        "Charlie": "c",
+        "Delta": "d",
+        "Echo": "e",
+        "Foxtrot": "f",
+        "Golf": "g",
+        "Hotel": "h",
+        "India": "i",
+        "Juliet": "j",
+        "Kilo": "k",
+        "Lima": "l",
+        "Mike": "m",
+        "November": "n",
+        "Oscar": "o",
+        "Papa": "p",
+        "Quebec": "q",
+        "Romeo": "r",
+        "Sierra": "s",
+        "Tango": "t",
+        "Uniform": "u",
+        "Victor": "v",
+        "Whiskey": "w",
+        "X-ray": "x",
+        "Yankee": "y",
+        "Zulu": "z",
+        "/": " "
+      };
+      outputArray = input.split(" ");
+      inputString = "";
+      for (j = 0, len = outputArray.length; j < len; j++) {
+        item = outputArray[j];
+        inputString += (function() {
+          if (nato[item]) {
+            return nato[item];
+          } else {
+            throw new Error("Character/phrase not translatable from NATO: " + item);
           }
         })();
       }

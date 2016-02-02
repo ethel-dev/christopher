@@ -7,6 +7,7 @@ code and cipher transcribing JS library. work in progress side project by me. se
 
 - morse code
 - base conversion
+- nato
 
 **usage**
 
@@ -31,6 +32,10 @@ christopher.from.base("1100011 1101000 1110010 1101001 1110011 1110100 1101111 1
 // morse code
 christopher.to.morse("hello") // ".... . .-.. .-.. ---"
 christopher.from.morse(".... . .-.. .-.. ---") // "hello"
+
+// nato
+christopher.to.nato("hello") // "Hotel Echo Lima Lima Oscar"
+christopher.from.nato("Hotel Echo Lima Lima Oscar") // hello
 ```
 
 this is like, really alpha. don't expect much tbh. license MIT
