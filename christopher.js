@@ -23,7 +23,6 @@ christopher = {
           outputString += items.charCodeAt(0).toString(base);
           if (i !== inputArray.length - 1 && (opts != null ? opts.spacing : void 0) !== false) {
             outputString += " ";
-            console.log("spacing for " + items);
           }
         }
         return outputString;
@@ -88,7 +87,7 @@ christopher = {
           if (morse[item]) {
             return morse[item];
           } else {
-            throw new Error("Character not translatable to Morse: " + item);
+            throw new Error("Character not translatable to Morse code: " + item);
           }
         })();
         if (i !== inputArray.length - 1) {
@@ -126,20 +125,24 @@ christopher = {
         "x": "X-ray",
         "y": "Yankee",
         "z": "Zulu",
+        "1": "One",
+        "2": "Two",
+        "3": "Three",
+        "4": "Four",
+        "5": "Five",
+        "6": "Six",
+        "7": "Seven",
+        "8": "Eight",
+        "9": "Nine",
+        "0": "Zero",
         " ": "/"
       };
       inputArray = input.split("");
       outputString = "";
       for (i = j = 0, len = inputArray.length; j < len; i = ++j) {
         item = inputArray[i];
-        outputString += (function() {
-          if (nato[item]) {
-            return nato[item];
-          } else {
-            throw new Error("Character not translatable to NATO language: " + item);
-          }
-        })();
-        if (i !== inputArray.length - 1) {
+        outputString += nato[item] ? nato[item] : item;
+        if (i !== inputArray.length - 1 && nato[item]) {
           outputString += " ";
         }
       }
@@ -223,7 +226,7 @@ christopher = {
           if (morse[item]) {
             return morse[item];
           } else {
-            throw new Error("Character/phrase not translatable from Morse: " + item);
+            throw new Error("Character not translatable to Morse code: " + item);
           }
         })();
       }
@@ -232,6 +235,16 @@ christopher = {
     nato: function(input) {
       var inputString, item, j, len, nato, outputArray;
       nato = {
+        "Zero": "0",
+        "One": "1",
+        "Two": "2",
+        "Three": "3",
+        "Four": "4",
+        "Five": "5",
+        "Six": "6",
+        "Seven": "7",
+        "Eight": "8",
+        "Nine": "9",
         "Alpha": "a",
         "Bravo": "b",
         "Charlie": "c",
@@ -264,13 +277,7 @@ christopher = {
       inputString = "";
       for (j = 0, len = outputArray.length; j < len; j++) {
         item = outputArray[j];
-        inputString += (function() {
-          if (nato[item]) {
-            return nato[item];
-          } else {
-            throw new Error("Character/phrase not translatable from NATO: " + item);
-          }
-        })();
+        inputString += nato[item] ? nato[item] : item;
       }
       return inputString;
     }

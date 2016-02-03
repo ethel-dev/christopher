@@ -19,8 +19,6 @@ christopher =
 
 					if i != inputArray.length - 1 and opts?.spacing isnt false
 						outputString += " "
-						console.log "spacing for #{items}"
-
 
 				return outputString
 
@@ -79,7 +77,7 @@ christopher =
 			outputString = ""
 
 			for item, i in inputArray
-				outputString += if morse[item] then morse[item] else throw new Error("Character not translatable to Morse: #{item}")
+				outputString += if morse[item] then morse[item] else throw new Error("Character not translatable to Morse code: #{item}")
 
 				if i != inputArray.length - 1 then outputString += " "
 
@@ -113,6 +111,16 @@ christopher =
 				"x": "X-ray",
 				"y": "Yankee",
 				"z": "Zulu",
+				"1": "One",
+				"2": "Two",
+				"3": "Three",
+				"4": "Four",
+				"5": "Five",
+				"6": "Six",
+				"7": "Seven",
+				"8": "Eight",
+				"9": "Nine",
+				"0": "Zero",
 				" ": "/"
 			}
 
@@ -120,9 +128,9 @@ christopher =
 			outputString = ""
 
 			for item, i in inputArray
-				outputString += if nato[item] then nato[item] else throw new Error("Character not translatable to NATO language: #{item}")
+				outputString += if nato[item] then nato[item] else item
 
-				if i != inputArray.length - 1 then outputString += " "
+				if i != inputArray.length - 1 and nato[item] then outputString += " "
 
 			return outputString
 
@@ -198,12 +206,22 @@ christopher =
 			inputString = ""
 
 			for item in outputArray
-				inputString += if morse[item] then morse[item] else throw new Error("Character/phrase not translatable from Morse: #{item}")
+				inputString += if morse[item] then morse[item] else throw new Error("Character not translatable to Morse code: #{item}")
 
 			return inputString
 
 		nato: (input) ->
 			nato = {
+			    "Zero":"0",
+			    "One":"1",
+			    "Two":"2",
+			    "Three":"3",
+			    "Four":"4",
+			    "Five":"5",
+			    "Six":"6",
+			    "Seven":"7",
+			    "Eight":"8",
+			    "Nine":"9",
 			    "Alpha":"a",
 			    "Bravo":"b",
 			    "Charlie":"c",
@@ -229,7 +247,7 @@ christopher =
 			    "Whiskey":"w",
 			    "X-ray":"x",
 			    "Yankee":"y",
-			    "Zulu":"z"
+			    "Zulu":"z",
 			    "/": " "
 			}
 
@@ -237,6 +255,6 @@ christopher =
 			inputString = ""
 
 			for item in outputArray
-				inputString += if nato[item] then nato[item] else throw new Error("Character/phrase not translatable from NATO: #{item}")
+				inputString += if nato[item] then nato[item] else item
 
 			return inputString
