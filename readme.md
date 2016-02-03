@@ -3,13 +3,15 @@ christopher
 
 code and cipher transcribing JS library. work in progress side project by me. seperate from bright, for now at least.
 
-**supported "codes"**
+supported "codes"
+----------------
 
 - morse code
 - base conversion
 - nato
 
-**usage**
+usage
+-----
 
 just like, include `christopher.js` somehow. example code:
 
