@@ -134,6 +134,15 @@ christopher =
 
 			return outputString
 
+		caesar: (input, shift) ->
+			return input.replace /([a-z|A-Z])/g, ($1) ->
+			    char = $1.charCodeAt(0)
+			    String.fromCharCode \
+			      if char >= 97
+			      then (char + shift + 26 - 97) % 26 + 97
+			      else (char + shift + 26 - 65) % 26 + 65
+
+
 	from:
 		base: (input, base) ->
 			if /\s/g.test(input) != true
@@ -258,3 +267,17 @@ christopher =
 				inputString += if nato[item] then nato[item] else item
 
 			return inputString
+		caesar: (input, shift) ->
+			if Math.sign(shift) == 1
+				rot = Math.abs(shift) * -1
+			else if Math.sign(shift) == -1
+				rot = Math.abs shift
+			else
+				rot = shift
+
+			return input.replace /([a-z|A-Z])/g, ($1) ->
+			    char = $1.charCodeAt(0)
+			    String.fromCharCode \
+			      if char >= 97
+			      then (char + rot + 26 - 97) % 26 + 97
+			      else (char + rot + 26 - 65) % 26 + 65

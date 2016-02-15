@@ -147,6 +147,13 @@ christopher = {
         }
       }
       return outputString;
+    },
+    caesar: function(input, shift) {
+      return input.replace(/([a-z|A-Z])/g, function($1) {
+        var char;
+        char = $1.charCodeAt(0);
+        return String.fromCharCode(char >= 97 ? (char + shift + 26 - 97) % 26 + 97 : (char + shift + 26 - 65) % 26 + 65);
+      });
     }
   },
   from: {
@@ -280,6 +287,21 @@ christopher = {
         inputString += nato[item] ? nato[item] : item;
       }
       return inputString;
+    },
+    caesar: function(input, shift) {
+      var rot;
+      if (Math.sign(shift) === 1) {
+        rot = Math.abs(shift) * -1;
+      } else if (Math.sign(shift) === -1) {
+        rot = Math.abs(shift);
+      } else {
+        rot = shift;
+      }
+      return input.replace(/([a-z|A-Z])/g, function($1) {
+        var char;
+        char = $1.charCodeAt(0);
+        return String.fromCharCode(char >= 97 ? (char + rot + 26 - 97) % 26 + 97 : (char + rot + 26 - 65) % 26 + 65);
+      });
     }
   }
 };

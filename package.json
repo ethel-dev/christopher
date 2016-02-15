@@ -1,0 +1,32 @@
+{
+  "name": "christopher",
+  "version": "1.0.0",
+  "description": "A cipher/code transcribing library built in JavaScript.",
+  "main": "christopher.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/soops/christopher.git"
+  },
+  "keywords": [
+    "cipher",
+    "encoding",
+    "decoding",
+    "base",
+    "conversion",
+    "binary",
+    "morse",
+    "nato",
+    "hex",
+    "caesarian",
+    "shift"
+  ],
+  "author": "Ethan Arterberry",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/soops/christopher/issues"
+  },
+  "homepage": "https://github.com/soops/christopher#readme"
+}
