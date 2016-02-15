@@ -14,7 +14,9 @@ supported "codes"
 usage
 -----
 
-just like, include `christopher.js` somehow or install with `npm install christopher` example code:
+just like, include `christopher.js` somehow or install with `npm install christopher` 
+
+example code:
 
 ```javascript
 // to base
