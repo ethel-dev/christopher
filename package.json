@@ -1,6 +1,6 @@
 {
   "name": "christopher",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "A cipher/code transcribing library built in JavaScript.",
   "main": "christopher.js",
   "repository": {
