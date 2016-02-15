@@ -16,7 +16,7 @@ supported "codes"
 usage
 -----
 
-just like, include `christopher.js` somehow or install with `npm install christopher` 
+just like, include `christopher.js` somehow or install it with your favorite package manager: `npm install christopher` or `bower install christopher`
 
 example code:
 
