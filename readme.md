@@ -1,7 +1,7 @@
 christopher
 ===========
 
-code and cipher transcribing JS library.
+code and cipher transcribing JS library by Ethan Arterberry
 
 supported "codes"
 ----------------
@@ -46,3 +46,7 @@ christopher.from.nato("Hotel Echo Lima Lima Oscar") // hello
 christopher.to.caesar("hello", 5) // shifts each character in "hello" 5 letters over to make "mjqqt"
 christopher.from.caesar("mjqqt", 5) // shifts each character in "mjqqt" back 5 letters to make "hello"
 ```
+
+why the name "christopher"?
+---------------------------
+The name "Christopher" comes from the name of Alan Turing's first love, Christopher Morcom, who tragically died of bovine tuberculosis just weeks before Alan could confess his love to him. Alan Turing later personally named his legendary Enigma-breaking computer "Christopher" after his childhood love, hence why this cipher library is named Christopher.
