@@ -8,8 +8,10 @@ supported "codes"
 
 - morse code
 - base conversion
-- nato
+- nato alphabet
 - caesarian shift
+- atbash cipher
+- letter numbers
 
 usage
 -----
@@ -36,17 +38,26 @@ christopher.from.base("1100011 1101000 1110010 1101001 1110011 1110100 1101111 1
 
 // morse code
 christopher.to.morse("hello") // ".... . .-.. .-.. ---"
-christopher.from.morse(".... . .-.. .-.. ---") // "hello"
+christopher.from.morse(".... . .-.. .-.. ---") // "HELLO"
 
-// nato
+// nato alphabet
 christopher.to.nato("hello") // "Hotel Echo Lima Lima Oscar"
-christopher.from.nato("Hotel Echo Lima Lima Oscar") // hello
+christopher.from.nato("Hotel Echo Lima Lima Oscar") // -> "HELLO"
 
 // caesarian shift
 // second argument is the shift, or basically the amount of letters in the alphabet each letter in the string should move over
 // negative shift is backwards in the alphabet, positive shift is forwards
 christopher.to.caesar("hello", 5) // shifts each character in "hello" 5 letters over to make "mjqqt"
 christopher.from.caesar("mjqqt", 5) // shifts each character in "mjqqt" back 5 letters to make "hello"
+
+// atbash cipher
+// reverses string, e.g. "a" would become "z", "b" would become "y", etc.
+christopher.to.atbash("hello") // -> "svool"
+christopher.from.atbash("svool") // -> "hello"
+
+// letter numbers
+christopher.to.letternumbers("hello, friend") // -> "8-5-12-12-15 / 6-18-9-5-14-4"
+christopher.from.letternumbers("8-5-12-12-15 / 6-18-9-5-14-4") // -> "HELLO FRIEND"
 ```
 
 why the name "christopher"?

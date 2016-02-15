@@ -79,7 +79,7 @@ christopher = {
         "=": "-...-",
         " ": "/"
       };
-      inputArray = input.split("");
+      inputArray = input.toLowerCase().split("");
       outputString = "";
       for (i = j = 0, len = inputArray.length; j < len; i = ++j) {
         item = inputArray[i];
@@ -137,12 +137,12 @@ christopher = {
         "0": "Zero",
         " ": "/"
       };
-      inputArray = input.split("");
+      inputArray = input.toLowerCase().split("");
       outputString = "";
       for (i = j = 0, len = inputArray.length; j < len; i = ++j) {
         item = inputArray[i];
         outputString += nato[item] ? nato[item] : item;
-        if (i !== inputArray.length - 1 && nato[item]) {
+        if (i !== inputArray.length - 1 && /^[\x00-\x7F]*$/.test(item) === true) {
           outputString += " ";
         }
       }
@@ -154,6 +154,90 @@ christopher = {
         char = $1.charCodeAt(0);
         return String.fromCharCode(char >= 97 ? (char + shift + 26 - 97) % 26 + 97 : (char + shift + 26 - 65) % 26 + 65);
       });
+    },
+    atbash: function(input) {
+      var atbash, i, inputArray, item, j, len, outputString;
+      atbash = {
+        "a": "z",
+        "b": "y",
+        "c": "x",
+        "d": "w",
+        "e": "v",
+        "f": "u",
+        "g": "t",
+        "h": "s",
+        "i": "r",
+        "j": "q",
+        "k": "p",
+        "l": "o",
+        "m": "n",
+        "n": "m",
+        "o": "l",
+        "p": "k",
+        "q": "j",
+        "r": "i",
+        "s": "h",
+        "t": "g",
+        "u": "f",
+        "v": "e",
+        "w": "d",
+        "x": "c",
+        "y": "b",
+        "z": "a",
+        "A": "Z",
+        "B": "Y",
+        "C": "X",
+        "D": "W",
+        "E": "V",
+        "F": "U",
+        "G": "T",
+        "H": "S",
+        "I": "R",
+        "J": "Q",
+        "K": "P",
+        "L": "O",
+        "M": "N",
+        "N": "M",
+        "O": "L",
+        "P": "K",
+        "Q": "J",
+        "R": "I",
+        "S": "H",
+        "T": "G",
+        "U": "F",
+        "V": "E",
+        "W": "D",
+        "X": "C",
+        "Y": "B",
+        "Z": "A"
+      };
+      inputArray = input.split("");
+      outputString = "";
+      for (i = j = 0, len = inputArray.length; j < len; i = ++j) {
+        item = inputArray[i];
+        outputString += atbash[item] ? atbash[item] : item;
+      }
+      return outputString;
+    },
+    letternumbers: function(input) {
+      var alphabet, i, inputArray, item, j, len, outputString;
+      alphabet = ["this space is intentionally left blank for the sake of this script", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+      inputArray = input.toLowerCase().split("");
+      outputString = "";
+      for (i = j = 0, len = inputArray.length; j < len; i = ++j) {
+        item = inputArray[i];
+        if (alphabet.indexOf(item) !== -1) {
+          outputString += alphabet.indexOf(item);
+        } else if (item === " ") {
+          if (i !== inputArray.length - 1) {
+            outputString += " / ";
+          }
+        }
+        if (i !== inputArray.length - 1 && item !== " " && alphabet.indexOf(inputArray[i + 1]) > -1) {
+          outputString += "-";
+        }
+      }
+      return outputString.toUpperCase();
     }
   },
   from: {
@@ -233,11 +317,11 @@ christopher = {
           if (morse[item]) {
             return morse[item];
           } else {
-            throw new Error("Character not translatable to Morse code: " + item);
+            throw new Error("Character not translatable from Morse code: " + item);
           }
         })();
       }
-      return inputString;
+      return inputString.toUpperCase();
     },
     nato: function(input) {
       var inputString, item, j, len, nato, outputArray;
@@ -286,7 +370,7 @@ christopher = {
         item = outputArray[j];
         inputString += nato[item] ? nato[item] : item;
       }
-      return inputString;
+      return inputString.toUpperCase();
     },
     caesar: function(input, shift) {
       var rot;
@@ -302,6 +386,85 @@ christopher = {
         char = $1.charCodeAt(0);
         return String.fromCharCode(char >= 97 ? (char + rot + 26 - 97) % 26 + 97 : (char + rot + 26 - 65) % 26 + 65);
       });
+    },
+    atbash: function(input) {
+      var atbash, i, inputString, item, j, len, outputArray;
+      atbash = {
+        "z": "a",
+        "y": "b",
+        "x": "c",
+        "w": "d",
+        "v": "e",
+        "u": "f",
+        "t": "g",
+        "s": "h",
+        "r": "i",
+        "q": "j",
+        "p": "k",
+        "o": "l",
+        "n": "m",
+        "m": "n",
+        "l": "o",
+        "k": "p",
+        "j": "q",
+        "i": "r",
+        "h": "s",
+        "g": "t",
+        "f": "u",
+        "e": "v",
+        "d": "w",
+        "c": "x",
+        "b": "y",
+        "a": "z",
+        "Z": "A",
+        "Y": "B",
+        "X": "C",
+        "W": "D",
+        "V": "E",
+        "U": "F",
+        "T": "G",
+        "S": "H",
+        "R": "I",
+        "Q": "J",
+        "P": "K",
+        "O": "L",
+        "N": "M",
+        "M": "N",
+        "L": "O",
+        "K": "P",
+        "J": "Q",
+        "I": "R",
+        "H": "S",
+        "G": "T",
+        "F": "U",
+        "E": "V",
+        "D": "W",
+        "C": "X",
+        "B": "Y",
+        "A": "Z"
+      };
+      outputArray = input.split("");
+      inputString = "";
+      for (i = j = 0, len = outputArray.length; j < len; i = ++j) {
+        item = outputArray[i];
+        inputString += atbash[item] ? atbash[item] : item;
+      }
+      return inputString;
+    },
+    letternumbers: function(input) {
+      var alphabet, i, inputString, item, j, len, outputArray;
+      alphabet = ["this space is intentionally left blank for the sake of this script", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+      outputArray = input.split(/[ -]+/);
+      inputString = "";
+      for (i = j = 0, len = outputArray.length; j < len; i = ++j) {
+        item = outputArray[i];
+        if (alphabet[item]) {
+          inputString += alphabet[item];
+        } else if (item === "/") {
+          inputString += " ";
+        }
+      }
+      return inputString.toUpperCase();
     }
   }
 };
