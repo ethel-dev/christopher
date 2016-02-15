@@ -1,7 +1,7 @@
 christopher
 ===========
 
-code and cipher transcribing JS library. work in progress side project by me. seperate from bright, for now at least.
+code and cipher transcribing JS library.
 
 supported "codes"
 ----------------
@@ -46,5 +46,3 @@ christopher.from.nato("Hotel Echo Lima Lima Oscar") // hello
 christopher.to.caesar("hello", 5) // shifts each character in "hello" 5 letters over to make "mjqqt"
 christopher.from.caesar("mjqqt", 5) // shifts each character in "mjqqt" back 5 letters to make "hello"
 ```
-
-this is like, really alpha. don't expect much tbh. license MIT
