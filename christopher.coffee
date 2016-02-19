@@ -2,7 +2,7 @@
 # license: MIT
 # (c) ethan arterberry 2016
 
-christopher =
+christopher = exports?.christopher || christopher =
 	to:
 		base: (input, base, opts) ->
 			if isNaN(input) != true

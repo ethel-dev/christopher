@@ -16,7 +16,7 @@ supported "codes"
 usage
 -----
 
-just like, include `christopher.js` somehow or install it with your favorite package manager: `npm install christopher` or `bower install christopher`
+just like, include `christopher.js` somehow or install it with your favorite package manager: `npm install christopher` or `bower install christopher`. you can use `require()` syntax or just include it in your HTML
 
 example code:
 
