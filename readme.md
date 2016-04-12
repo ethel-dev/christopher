@@ -62,4 +62,4 @@ christopher.from.letternumbers("8-5-12-12-15 / 6-18-9-5-14-4") // -> "HELLO FRIE
 
 why the name "christopher"?
 ---------------------------
-The name "Christopher" comes from the name of Alan Turing's first love, Christopher Morcom, who tragically died of bovine tuberculosis just weeks before Alan could confess his love to him. Alan Turing later personally named his legendary Enigma-breaking computer "Christopher" after his childhood love, hence why this cipher library is named Christopher.
+The name "Christopher" comes from the name of Alan Turing's first love, Christopher Morcom, who tragically died of bovine tuberculosis just weeks before Alan could confess his love to him. Alan Turing invented the computer, and created a machine that could decode enimga transfers during WWII, so this cipher library is named Christopher in his memory.
